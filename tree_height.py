@@ -35,7 +35,7 @@ def main():
             except FileNotFoundError:
                 return
                 
-    if 'I' in input_text:
+    if 'I' in input1:
         n = int(input())
         parents = list(map(int, input().split()))
         print(compute_height(n, parents))
