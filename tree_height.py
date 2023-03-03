@@ -28,24 +28,22 @@ def compute_height(n, parents):
 
 def main():
     input1 = input()
-
     if 'F' in input1:
         file = input()
         file = "test/" + file
+        if 'a' not in file:
+            return
         with open(file, mode = "r") as f:
-            if 'a' not in file:
-                return
             n = int(f.readline())
             parents = list(map(int, f.readline().split()))
-    elif 'I' in input1:
+    if 'I' in input1:
         n = int(input())
         parents = list(map(int, input().split()))
-    else:
-        return
-
     print(compute_height(n, parents))
+    
 sys.setrecursionlimit(10**7)
 threading.stack_size(2**27)
 threading.Thread(target=main).start()
+
 
 
