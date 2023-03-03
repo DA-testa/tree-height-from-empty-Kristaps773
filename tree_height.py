@@ -1,3 +1,4 @@
+# 2218RDB518 Krists Kristaps Dūda
 # python3
 
 import sys
@@ -5,23 +6,24 @@ import threading
 
 
 def compute_height(n, parents):
-    # Write this function
+    koks = {}
+    root = -1
     max_height = 0
-    heights = [0] * n
-    # Your code here
-
     for i in range(n):
-        height = 0
-        j = i 
-        while j != -1:
-            if heights[j] != 0:
-                height += heights[j]
-                break
-            height += 1
-            j = parents[j]
-        heights[i] = height
+        koks[i] = []
+    for i in range(n):
+        if parents[i] is -1:
+            root = i
+        else:
+            koks[parents[i]].append(i)
+    stack = [(root,1)]
+    while stack:
+        node,height = stack.pop()
         max_height = max(max_height,height)
+        for child in koks[node]:
+            stack.append((child,height+1))
     return max_height
+    
 
 
 def main():
