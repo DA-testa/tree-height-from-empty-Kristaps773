@@ -12,7 +12,7 @@ def compute_height(n, parents):
     for i in range(n):
         koks[i] = []
     for i in range(n):
-        if parents[i] is -1:
+        if parents[i] == -1:
             root = i
         else:
             koks[parents[i]].append(i)
