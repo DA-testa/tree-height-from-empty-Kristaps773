@@ -14,12 +14,12 @@ def compute_height(n, parents):
         if parents[i] == -1:
             root = i
         else:
-            koks.setdefault(parents[i],[]).append(i)
+            koks[parents[i]].append(i)
     stack = [(root, 1)]
     while stack:
         node, height = stack.pop()
         max_height = max(max_height, height)
-        for child in koks.get(node,[]):
+        for child in koks.get(node, []):
             stack.append((child, height + 1))
     return max_height
 
