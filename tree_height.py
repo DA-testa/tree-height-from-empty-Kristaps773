@@ -4,7 +4,6 @@
 import sys
 import threading
 
-
 def compute_height(n, parents):
     koks = {}
     root = -1
@@ -16,15 +15,13 @@ def compute_height(n, parents):
             root = i
         else:
             koks[parents[i]].append(i)
-    stack = [(root,1)]
+    stack = [(root, 1)]
     while stack:
-        node,height = stack.pop()
-        max_height = max(max_height,height)
+        node, height = stack.pop()
+        max_height = max(max_height, height)
         for child in koks[node]:
-            stack.append((child,height+1))
+            stack.append((child, height + 1))
     return max_height
-    
-
 
 def main():
     input1 = input()
@@ -33,7 +30,7 @@ def main():
         file = "test/" + file
         if 'a' not in file:
             return
-        with open(file, mode = "r") as f:
+        with open(file, mode="r") as f:
             n = int(f.readline())
             parents = list(map(int, f.readline().split()))
     if 'I' in input1:
@@ -44,6 +41,5 @@ def main():
 sys.setrecursionlimit(10**7)
 threading.stack_size(2**27)
 threading.Thread(target=main).start()
-
 
 
