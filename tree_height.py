@@ -27,18 +27,14 @@ def main():
         file = input()
         file = "test/" + file
         if 'a' not in file:
-            try:
-                with open(file, mode="r") as f:
-                    n = int(f.readline())
-                    parents = list(map(int, f.readline().split()))
-                    print(compute_height(n, parents))
-            except FileNotFoundError:
-                return
-        if 'I' in input1:
-            n = int(input())
-            parents = list(map(int, input().split()))
-            print(compute_height(n, parents))
-
+            return
+        with open(file, mode="r") as f:
+            n = int(f.readline())
+            parents = list(map(int, f.readline().split()))
+    if 'I' in input1:
+        n = int(input())
+        parents = list(map(int, input().split()))
+    print(compute_height(n, parents))
     
 sys.setrecursionlimit(10**7)
 threading.stack_size(2**27)
