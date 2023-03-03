@@ -5,21 +5,19 @@ import sys
 import threading
 
 def compute_height(n, parents):
-    koks = {}
+    children = [[] for i in range(n)]
     root = -1
     max_height = 0
-    for i in range(n):
-        koks[i] = []
     for i in range(n):
         if parents[i] == -1:
             root = i
         else:
-            koks[parents[i]].append(i)
+            children[parents[i]].append(i)
     stack = [(root, 1)]
     while stack:
         node, height = stack.pop()
         max_height = max(max_height, height)
-        for child in koks.get(node, []):
+        for child in children[node]:
             stack.append((child, height + 1))
     return max_height
 
