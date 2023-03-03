@@ -1,4 +1,4 @@
-# 2218RDB518 Krists Kristaps Dūda
+# 2218RDB518 Krists Kristaps Dūda 10.grupa
 # python3
 
 import sys
